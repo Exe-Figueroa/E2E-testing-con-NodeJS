@@ -34,5 +34,11 @@
  * *Para saber qué pruebas corren hacia qué puerto
  * * Guía para cubrir los flujos a los que le faltan pruebas
  * *Agregar flag para los reportes en el package json
- * 
+ *
+ */
+
+/** 09-Pruebas a los schemas o dtos
+ * *Creamos un archivo por ruta básicamente y en cada archivo hay que testear las rutas de cada servicio
+ * *Trabajamos en la ruta de usuarios para verificar que la api no inyecte valores no válidos en la db
+ *  ?Enviamos mal el mail y el usuario para que esta nos devuelva un 400 y un mensaje
  */

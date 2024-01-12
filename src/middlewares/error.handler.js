@@ -1,7 +1,7 @@
 const { ValidationError } = require('sequelize');
 
 function logErrors (err, req, res, next) {
-  console.error(err);
+  // console.error(err); // Lo comentamos para que no nos manche la terminal de testing
   next(err);
 }
 
