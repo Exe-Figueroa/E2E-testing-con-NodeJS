@@ -17,6 +17,7 @@ describe('Tests for users path  ', () => {
     api = request(app);
   });
 
+
   describe('GET /users', () => {
     // Test for /users
 
@@ -89,7 +90,8 @@ describe('Tests for users path  ', () => {
     // Test for /users
   });
 
-  afterEach(() => {
+  afterAll(() => {
     server.close()
   });
+
 });

@@ -1,7 +1,10 @@
 const { ValidationError } = require('sequelize');
+const { config } = require('../config/config');
 
 function logErrors (err, req, res, next) {
-  // console.error(err); // Lo comentamos para que no nos manche la terminal de testing
+  if (config.env === 'dev') {
+    console.error(err); // Lo comentamos para que no nos manche la terminal de testing
+  }
   next(err);
 }
 

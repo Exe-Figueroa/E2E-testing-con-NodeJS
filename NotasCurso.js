@@ -48,3 +48,9 @@
  * *Para que sean más precisas nos traemos a sequelize y empezamos a realizar pruebas con sus modelos
  *  ?Así verificamos que realmente se conectó a la db
  */
+
+/** 11-Pruebas al Login
+ * *Se le hacen solicitudes a la ruta de login
+ * *Se prueban devoluciones de errores en caso de que se envíen usuarios inexistentes
+ * *Se prueban usuarios sin contraseña en caso de que se envíe información correcta
+ */

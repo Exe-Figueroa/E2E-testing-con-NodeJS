@@ -24,7 +24,7 @@ describe('Tests for app ', () => {
     expect(response.headers['content-type']).toMatch(/json/);
   });
 
-  afterEach(() => {
+  afterAll(() => {
     server.close()
   });
 });
