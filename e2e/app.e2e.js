@@ -1,6 +1,6 @@
 const request = require('supertest'); //Para emular los request a la api
-const express = require('express');
 
+const createApp = require('../src/app');
 
 describe('Tests for app ', () => {
   let app = null;
@@ -8,20 +8,15 @@ describe('Tests for app ', () => {
   let api = null;
 
   beforeAll(() => {
-    app = express();
-
-    app.get('/', (req, res) => {
-      const obj = { name: 'Facu' }
-      res.status(200).json(obj);
-    });
+    app = createApp();
 
     server = app.listen(3001);
 
     api = request(app);
   });
 
-  test('GET /', async () => {
-    const response = await api.get('/');
+  test('GET /hi', async () => {
+    const response = await api.get('/hi');
 
     expect(response.body).toBeTruthy();
     expect(response.body).toEqual({ name: 'Facu' });

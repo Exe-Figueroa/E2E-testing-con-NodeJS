@@ -23,3 +23,8 @@
 /** 06-Buenas prácticas en pruebas e2e
  * *Se corrigen los procesos asíncronos dándoles como tiempo de vida solo el momento en el que se van a ejecutar las pruebas
  */
+
+/** 07-Configurando el entorno de pruebas para nuestro proyecto
+ * *crear un archivo app con una función para levantar el servidor
+ * *Luego utilizar la función para levantar el servidor en cada prueba
+ */
