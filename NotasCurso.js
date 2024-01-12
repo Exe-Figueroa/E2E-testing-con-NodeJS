@@ -28,3 +28,9 @@
  * *crear un archivo app con una función para levantar el servidor
  * *Luego utilizar la función para levantar el servidor en cada prueba
  */
+
+
+/** 08-Coverage Report (Reporte de cobertura)
+ * *Para saber qué pruebas corren hacia qué puerto
+ * * Guía para cubrir los flujos a los que le faltan pruebas
+ */
