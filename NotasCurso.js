@@ -19,3 +19,7 @@
  * *Crear una api con un endpoint
  * *Utilizar supertest para realizar consultas a esa api y comprobar los valores que devuelve
  */
+
+/** 06-Buenas prácticas en pruebas e2e
+ * *Se corrigen los procesos asíncronos dándoles como tiempo de vida solo el momento en el que se van a ejecutar las pruebas
+ */
