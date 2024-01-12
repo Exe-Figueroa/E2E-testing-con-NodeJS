@@ -13,7 +13,7 @@
  * *Se le agrega un comando --verbose para que los test sean más explícitos
  */
 
-/** 04-Tu primer prueba e2e
+/** 05-Tu primer prueba e2e
  * *Vamos a hacer solicitudes a la api utilizando supertest y luego vamos a checkear si las respuestas son las esperadas o no
  * *Instalar supertest
  * *Crear una api con un endpoint
