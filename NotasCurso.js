@@ -54,3 +54,8 @@
  * *Se prueban devoluciones de errores en caso de que se envíen usuarios inexistentes
  * *Se prueban usuarios sin contraseña en caso de que se envíe información correcta
  */
+
+/** 12-Pruebas a rutas con protección
+ * *Se le coloca la función set() al get de la api para poder enviar headers
+ * *Se verifica si los códigos de las consultas funcionan en base a la api_key enviada
+ */
