@@ -42,3 +42,9 @@
  * *Trabajamos en la ruta de usuarios para verificar que la api no inyecte valores no válidos en la db
  *  ?Enviamos mal el mail y el usuario para que esta nos devuelva un 400 y un mensaje
  */
+
+/** 10-Pruebas a endpoints GET
+ * *Realizamos pruebas
+ * *Para que sean más precisas nos traemos a sequelize y empezamos a realizar pruebas con sus modelos
+ *  ?Así verificamos que realmente se conectó a la db
+ */

@@ -1,6 +1,8 @@
 const request = require('supertest'); //Para emular los request a la api
 
 const createApp = require('../src/app');
+const { models } = require('../src/db/sequelize');
+
 
 describe('Tests for users path  ', () => {
   let app = null;
@@ -19,6 +21,29 @@ describe('Tests for users path  ', () => {
     // Test for /users
 
   });
+  describe('GET /users/{id}', () => {
+    // Test for /user/id
+    test('should retrun a user', async () => {
+      // Arrange
+      const userId = 1;
+      const { dataValues } = await models.User.findByPk(userId);
+
+      // Act
+      const { body, statusCode } = await api.get(`/api/v1/users/${userId}`);
+
+      // Assert
+      expect(statusCode).toEqual(200);
+      expect(body).toBeTruthy();
+      // expect({...body}).toEqual({...dataValues}); // Este falla porque el created at del body lo devuelve como string y el de sequelize es devuelto como un número
+
+      expect(body.id).toEqual(dataValues.id);
+      expect(body.email).toEqual(dataValues.email);
+      expect(body.password).toEqual(dataValues.password);
+      expect(body.role).toEqual(dataValues.role);
+      expect(body.id).toEqual(userId);
+    });
+
+  });
 
   describe('POST /users', () => {
     // Test for /users
@@ -29,7 +54,7 @@ describe('Tests for users path  ', () => {
         password: 'lalal'
       };
       // act
-      const {body, statusCode} = await api.post('/api/v1/users').send(inputData);
+      const { body, statusCode } = await api.post('/api/v1/users').send(inputData);
       // assert
       expect(statusCode).toEqual(400);
       expect(body.error).toEqual('Bad Request');
@@ -44,7 +69,7 @@ describe('Tests for users path  ', () => {
         password: 'correctPassword'
       };
       // act
-      const {body, statusCode} = await api.post('/api/v1/users').send(inputData);
+      const { body, statusCode } = await api.post('/api/v1/users').send(inputData);
       // assert
       expect(statusCode).toEqual(400);
       expect(body.error).toEqual('Bad Request');
@@ -53,6 +78,8 @@ describe('Tests for users path  ', () => {
     });
 
   });
+  // TODO: with valid data
+
 
   describe('PATCH /users', () => {
     // Test for /users
