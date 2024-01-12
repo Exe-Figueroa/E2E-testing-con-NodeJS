@@ -33,4 +33,6 @@
 /** 08-Coverage Report (Reporte de cobertura)
  * *Para saber qué pruebas corren hacia qué puerto
  * * Guía para cubrir los flujos a los que le faltan pruebas
+ * *Agregar flag para los reportes en el package json
+ * 
  */
