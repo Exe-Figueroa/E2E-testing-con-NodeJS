@@ -59,3 +59,10 @@
  * *Se le coloca la función set() al get de la api para poder enviar headers
  * *Se verifica si los códigos de las consultas funcionan en base a la api_key enviada
  */
+
+/** 13-Pruebas a rutas con accessToken
+ * *Se crea un nuevo archivo de test para la ruta de profile para verificar el perfil del usuario con el acces token enviado
+ * *Se crean los test para la ruta y se define queantes de todos los test se va a loguear el usuario
+ *  ?Esto es con el fin de conseguir el access token
+ * *Luego se hacen las pruebas necesarias
+*/
