@@ -147,3 +147,4 @@
  * *Se hace con el fin de que cada vez que hayan cambios en el repo se corran las pruebas de manera automática
  *  ?Esto es debido a que cuando desplegamos nuestra app no tenemos manera de correr los tests
  */
+
