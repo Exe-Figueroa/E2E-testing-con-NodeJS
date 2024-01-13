@@ -113,3 +113,11 @@
  * *Luego reemplazamos el import del seed manual y colocamos la ruta de umzug.
  *  ?Como las funciones tienen el mismo nombre y los archivos están en el mismo scope solo cambiamos el nombre de seed por umzug para importar las funciones
  */
+
+/** 20-Pruebas a crear categorías
+ * *Hacemos login de un user para obtener el token y con ese token probamos crear categorías
+ * *Hacemos pruebas al endpoint para ver si falla (Sin enviar un token)
+ * *Hacemos pruebas enviando un token de customer user para validar si falla
+ */
+
+
