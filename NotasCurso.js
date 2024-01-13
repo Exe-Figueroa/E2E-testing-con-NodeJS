@@ -120,4 +120,10 @@
  * *Hacemos pruebas enviando un token de customer user para validar si falla
  */
 
+/** 21-Pruebas al endpoint de productos
+ * *Se crean las pruebas para traer 1 producto y se compara con el de la db
+ * *se hace lo mismo pero con varios productos
+ * *Se comprueba que la categoría sea la misma
+ * *Post a products
+ */
 

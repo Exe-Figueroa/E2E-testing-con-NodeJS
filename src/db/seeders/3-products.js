@@ -59,7 +59,7 @@ module.exports = {
         name: 'Product 7',
         price: 500,
         description: 'Product 7 description',
-        category_id : 2,
+        category_id : 3,
         image: 'https://www.shutterstock.com/image-vector/homer-simpson-cartoon-character-isolated-260nw-2317190887.jpg',
         created_at: new Date()
       },
@@ -67,7 +67,7 @@ module.exports = {
         name: 'Product 8',
         price: 500,
         description: 'Product 8 description',
-        category_id : 1,
+        category_id : 3,
         image: 'https://www.shutterstock.com/image-vector/homer-simpson-cartoon-character-isolated-260nw-2317190887.jpg',
         created_at: new Date()
       },
@@ -75,7 +75,7 @@ module.exports = {
         name: 'Product 9',
         price: 500,
         description: 'Product 9 description',
-        category_id : 2,
+        category_id : 3,
         image: 'https://www.shutterstock.com/image-vector/homer-simpson-cartoon-character-isolated-260nw-2317190887.jpg',
         created_at: new Date()
       },
