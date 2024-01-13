@@ -2,7 +2,8 @@ const request = require('supertest'); //Para emular los request a la api
 
 const createApp = require('../src/app');
 const { models } = require('../src/db/sequelize');
-const { upSeed, downSeed } = require('./utils/seed');
+const { upSeed, downSeed } = require('./utils/umzug');
+
 
 describe('Tests for profile path  ', () => {
   let app = null;

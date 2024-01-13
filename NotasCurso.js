@@ -99,10 +99,17 @@
  */
 
 /** 18-Seed de datos con sequelize
- * *Se crea una carpeta seeders en donde se le van a colocar las semillas de sequelize
+* *Se crea una carpeta seeders en donde se le van a colocar las semillas de sequelize
  * *Se crea la semilla para users
  * *Los seeds se corren en orden según el número que tengan al principio
  * *Se crean seed para categorias y productos
  * *Se crea un comando para correr los seeds con el cli de sequelize
  *  ?Uno para subirlos y el otro para revertirlos
+ */
+
+/** 19-Umzug: corriendo los seeds de datos para pruebas e2e
+ * *Es para poder correr los comandos npm run seed:all y npm run seed:undo de manera programática
+ * *Se configura el up de umzug y el down. Le decimos que corra los seeder y además le colocamos una configuración para poder enviarle el contexto a las semillas
+ * *Luego reemplazamos el import del seed manual y colocamos la ruta de umzug.
+ *  ?Como las funciones tienen el mismo nombre y los archivos están en el mismo scope solo cambiamos el nombre de seed por umzug para importar las funciones
  */

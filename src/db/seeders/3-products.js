@@ -3,6 +3,9 @@ const { PRODUCT_TABLE } = require("../models/product.model");
 
 module.exports = {
   up: async (queryInterface) => {
+    if (queryInterface.context) {
+      queryInterface = queryInterface.context;
+    }
     const productList = [
       {
         name: 'Product 1',
@@ -80,6 +83,9 @@ module.exports = {
     return queryInterface.bulkInsert(PRODUCT_TABLE, [...productList]);
   },
   down: (queryInterface) => {
+    if (queryInterface.context) {
+      queryInterface = queryInterface.context;
+    }
     return queryInterface.bulkDelete(PRODUCT_TABLE, null, {});
   }
 };

@@ -2,6 +2,9 @@ const { CATEGORY_TABLE } = require('../models/category.model');
 
 module.exports = {
   up: async (queryInterface) => {
+    if (queryInterface.context) {
+      queryInterface = queryInterface.context;
+    }
     const categoryList = [
       {
         name: 'Category 1',
@@ -22,6 +25,9 @@ module.exports = {
     return queryInterface.bulkInsert(CATEGORY_TABLE, [...categoryList]);
   },
   down: (queryInterface) => {
+    if (queryInterface.context) {
+      queryInterface = queryInterface.context;
+    }
     return queryInterface.bulkDelete(CATEGORY_TABLE, null, {});
   }
 };
