@@ -2,18 +2,20 @@ const request = require('supertest'); //Para emular los request a la api
 
 const createApp = require('../src/app');
 const { models } = require('../src/db/sequelize');
+const { upSeed, downSeed } = require('./utils/seed');
 
 describe('Tests for profile path  ', () => {
   let app = null;
   let server = null;
   let api = null;
 
-  beforeAll(() => {
+  beforeAll(async () => {
     app = createApp();
 
     server = app.listen(3001);
 
     api = request(app);
+    await upSeed();
   });
 
 
@@ -26,8 +28,8 @@ describe('Tests for profile path  ', () => {
       const response = await models.User.findByPk(1);
       dataValues = response.dataValues;
       inputData = {
-        email: 'facundofigueroa789@gmail.com',
-        password: '45447663'
+        email: 'usuarioRandom@gmail.com',
+        password: 'Berenjena123'
       };
       const rtaLogin = await api.post('/api/v1/auth/login').send(inputData);
       bodyLogin = rtaLogin.body
@@ -84,7 +86,8 @@ describe('Tests for profile path  ', () => {
   });
 
 
-  afterAll(() => {
+  afterAll(async () => {
+    await downSeed();
     server.close()
   });
 

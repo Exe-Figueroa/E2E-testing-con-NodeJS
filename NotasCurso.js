@@ -88,3 +88,12 @@
  * *Luego configuramos el archivo config para que lea las variables de .env o .env.e2e según la node_env
  * *Luego creamos el script para insertar el valor de e2e en la var de entorno cuando se ejecuten pruebas de testeo
  */
+
+/** 17-Creando un seed de datos manual
+ * *Creamos una carpeta utils para nuestro seed.js
+ * *Dentro del seed creamos una función para levantar las semillas y otra para bajarlas
+ * *Nos importamos a sequelize y también extraemos los modelos de sequelize
+ * *Dentro de la función para levantar las semillas sincronizamos la info
+ *  ?Lo hacemos para crear en e2e una estructura de la tabla sin necesidad de correr migraciones con un comando
+ * *Se llama a la función para levantar la semilla y se la coloca en el beforeAll de los test para levantar la db
+ */

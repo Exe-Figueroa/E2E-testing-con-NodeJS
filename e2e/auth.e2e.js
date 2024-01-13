@@ -2,6 +2,7 @@ const request = require('supertest'); //Para emular los request a la api
 
 const createApp = require('../src/app');
 const { models } = require('../src/db/sequelize');
+const { upSeed, downSeed } = require('./utils/seed');
 
 
 describe('Tests for auth  path  ', () => {
@@ -9,17 +10,16 @@ describe('Tests for auth  path  ', () => {
   let server = null;
   let api = null;
 
-  beforeAll(() => {
+  beforeAll(async () => {
     app = createApp();
 
     server = app.listen(3001);
 
     api = request(app);
+
+    await upSeed();
   });
 
-  afterAll(() => {
-    server.close()
-  });
 
 
   describe('POST /auth/login', () => { // Test for auth/login
@@ -43,8 +43,8 @@ describe('Tests for auth  path  ', () => {
       const { dataValues } = await models.User.findByPk(1);
 
       const inputData = {
-        email: 'facundofigueroa789@gmail.com',
-        password: '45447663'
+        email: 'usuarioRandom@gmail.com',
+        password: 'Berenjena123'
       };
       const { body, statusCode } = await api.post('/api/v1/auth/login').send(inputData);
 
@@ -53,5 +53,10 @@ describe('Tests for auth  path  ', () => {
       expect(body.user.email).toEqual(dataValues.email);
       expect(body.user.password).toBeUndefined();
     });
+  });
+
+  afterAll(async () => {
+    await downSeed();
+    server.close()
   });
 });

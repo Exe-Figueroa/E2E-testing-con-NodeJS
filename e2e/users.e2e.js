@@ -2,19 +2,21 @@ const request = require('supertest'); //Para emular los request a la api
 
 const createApp = require('../src/app');
 const { models } = require('../src/db/sequelize');
-
+const { upSeed, downSeed } = require('./utils/seed');
 
 describe('Tests for users path  ', () => {
   let app = null;
   let server = null;
   let api = null;
 
-  beforeAll(() => {
+  beforeAll(async () => {
     app = createApp();
 
     server = app.listen(3001);
 
     api = request(app);
+
+    await upSeed();
   });
 
 
@@ -106,7 +108,8 @@ describe('Tests for users path  ', () => {
     // Test for /users
   });
 
-  afterAll(() => {
+  afterAll(async() => {
+    await downSeed();
     server.close()
   });
 
