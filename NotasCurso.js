@@ -97,3 +97,12 @@
  *  ?Lo hacemos para crear en e2e una estructura de la tabla sin necesidad de correr migraciones con un comando
  * *Se llama a la función para levantar la semilla y se la coloca en el beforeAll de los test para levantar la db
  */
+
+/** 18-Seed de datos con sequelize
+ * *Se crea una carpeta seeders en donde se le van a colocar las semillas de sequelize
+ * *Se crea la semilla para users
+ * *Los seeds se corren en orden según el número que tengan al principio
+ * *Se crean seed para categorias y productos
+ * *Se crea un comando para correr los seeds con el cli de sequelize
+ *  ?Uno para subirlos y el otro para revertirlos
+ */
