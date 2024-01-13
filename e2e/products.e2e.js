@@ -25,11 +25,35 @@ describe('Tests for products  path  ', () => {
       const productList = await models.Product.findAll();
 
       // Act
-      const {statusCode, body} = await api.get('/api/v1/products');
+      const { statusCode, body } = await api.get('/api/v1/products');
 
       // Assert
       expect(statusCode).toEqual(200);
       expect(body.length).toEqual(productList.length);
+    });
+  });
+
+  describe('GET /products', () => {
+    test('should retrun n products list with limit and offset', async () => {
+      const limit = 2
+      const offset = 0
+
+      const productList = await models.Product.findAll();
+
+      const { statusCode, body } = await api.get(`/api/v1/products?limit=${limit}&offset=${offset}`);
+
+      expect(statusCode).toEqual(200);
+      expect(body.length).toEqual(2);
+      //Validamos el primero producto
+      expect(body[0].id).toEqual(productList[0].id);
+      expect(body[0].name).toEqual(productList[0].name);
+      expect(body[0].categoryId).toEqual(productList[0].categoryId);
+      //Validamos el segundo producto
+      expect(body[1].id).toEqual(productList[1].id);
+      expect(body[1].name).toEqual(productList[1].name);
+      expect(body[1].categoryId).toEqual(productList[1].categoryId);
+      //Validamos que no exista ninguno en el index 2
+      expect(body[2]).toBeUndefined();
     });
   });
 
@@ -40,7 +64,7 @@ describe('Tests for products  path  ', () => {
       const product = await models.Product.findByPk(productId);
       const categoryProduct = await models.Category.findByPk(product.categoryId);
       // Act
-      const {statusCode, body} = await api.get(`/api/v1/products/${productId}`);
+      const { statusCode, body } = await api.get(`/api/v1/products/${productId}`);
       // Assert
       expect(statusCode).toEqual(200);
       expect(body.id).toEqual(product.id);
@@ -63,7 +87,7 @@ describe('Tests for products  path  ', () => {
         price: 500
       }
 
-      const {statusCode, body} = await api.post('/api/v1/products').send(newProduct);
+      const { statusCode, body } = await api.post('/api/v1/products').send(newProduct);
       expect(statusCode).toEqual(400);
       expect(body.message).toMatch(/is required/);
       expect(body.message).toMatch(/image/);
@@ -79,7 +103,7 @@ describe('Tests for products  path  ', () => {
         price: 500
       }
 
-      const {statusCode, body} = await api.post('/api/v1/products').send(newProduct);
+      const { statusCode, body } = await api.post('/api/v1/products').send(newProduct);
       const checkProduct = await models.Product.findByPk(body.id);
 
       expect(statusCode).toEqual(201);
@@ -91,7 +115,7 @@ describe('Tests for products  path  ', () => {
 
   });
 
-  afterAll(async() => {
+  afterAll(async () => {
     await downSeed();
     server.close()
   });

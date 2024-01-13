@@ -127,3 +127,7 @@
  * *Post a products
  */
 
+/** 22-Pruebas a la paginación
+ * *Se prueba el get a la paginación cuando este lleva los query parameters de limit y offset
+ * *Se prueba que al traer datos paginados estos no superen el límite impuesto
+ */
