@@ -66,3 +66,8 @@
  *  ?Esto es con el fin de conseguir el access token
  * *Luego se hacen las pruebas necesarias
 */
+
+/** 14-Pruebas a endpoints POST
+ *  *Básicamente se crea el test que había faltado. Enviar un usuario a una db y compararlo con la solicitud directa a la db con sequelize
+ * *Hay que crear una db que no guarde los datos que son de pruebas
+ */
