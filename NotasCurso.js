@@ -81,3 +81,10 @@
  * *Para evitar que las pruebas se pisen creamos un dataSet para ejecutar las pruebas
  * *Antes y después de cada prueba se crean y se eliminan los datos creados
  */
+
+/** 16-Preparando el ambiente de pruebas e2e
+ * *Creamos una configuración para levantar una db de prueba
+ * *En dicha db no deben persistir los datos
+ * *Luego configuramos el archivo config para que lea las variables de .env o .env.e2e según la node_env
+ * *Luego creamos el script para insertar el valor de e2e en la var de entorno cuando se ejecuten pruebas de testeo
+ */
