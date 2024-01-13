@@ -71,3 +71,13 @@
  *  *Básicamente se crea el test que había faltado. Enviar un usuario a una db y compararlo con la solicitud directa a la db con sequelize
  * *Hay que crear una db que no guarde los datos que son de pruebas
  */
+
+/** 15-¿Crear bases de datos solo para pruebas?
+ * *Cada prueba debería tener su escenario de datos sin que este influya en las posteriores
+ * *Rule 1=> No se debe probar con la DB de producción
+ * *Rule 2=> No se debe usar la DB de desarrollo
+ * *Rule 3=> Evitar crear datos de forma manual
+ * *Rule 4=> Tener un escenario de datos replicable
+ * *Para evitar que las pruebas se pisen creamos un dataSet para ejecutar las pruebas
+ * *Antes y después de cada prueba se crean y se eliminan los datos creados
+ */
