@@ -4,7 +4,13 @@ const createApp = require('../src/app');
 const { models } = require('../src/db/sequelize');
 const { upSeed, downSeed } = require('./utils/umzug');
 
-
+// Mocking de nodemailer
+const mockSendMail = jest.fn();
+jest.mock('nodemailer', ()=>({
+  createTransport: jest.fn().mockImplementation(()=>({
+    sendMail: mockSendMail,
+  }))
+}))
 
 describe('Tests for auth  path  ', () => {
   let app = null;
@@ -20,8 +26,6 @@ describe('Tests for auth  path  ', () => {
 
     await upSeed();
   });
-
-
 
   describe('POST /auth/login', () => { // Test for auth/login
     test('should return 401 Unauthorized', async () => {
@@ -53,6 +57,39 @@ describe('Tests for auth  path  ', () => {
       expect(statusCode).toEqual(200);
       expect(body.user.email).toEqual(dataValues.email);
       expect(body.user.password).toBeUndefined();
+    });
+  });
+
+  describe('POST /recovery (Mock service)', () => {
+    beforeAll(() => {
+      mockSendMail.mockClear(); //Buena práctica para limpiar el mock y evitar comportamientos indeseados
+    });
+
+    test('should return 401', async () => {
+      const inputData = {
+        email: 'noexisto@gmail.com',
+      };
+
+      const{statusCode}= await api.post('/api/v1/auth/recovery').send(inputData);
+
+      expect(statusCode).toEqual(401);
+
+    });
+
+    test('should send mail', async () => {
+      const user = await models.User.findByPk('1');
+
+      const inputData = {
+        email: user.email,
+      };
+      console.log({mockSendMail});
+      mockSendMail.mockResolvedValue(true);
+      const{statusCode, body}= await api.post('/api/v1/auth/recovery').send(inputData);
+
+      expect(statusCode).toEqual(200);
+      expect(body.message).toEqual('mail sent');
+      expect(mockSendMail).toHaveBeenCalled();
+
     });
   });
 

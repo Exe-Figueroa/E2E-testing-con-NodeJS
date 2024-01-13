@@ -78,7 +78,7 @@ class AuthService {
         pass: config.smtpPassword
       }
     });
-    await transporter.sendMail(infoMail);
+    await transporter.sendMail(infoMail);//Si yo comento esta línea el test falla porque mock interpreta que esta fn no fue llamada
     return { message: 'mail sent' };
   }
 }

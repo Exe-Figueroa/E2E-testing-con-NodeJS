@@ -131,3 +131,14 @@
  * *Se prueba el get a la paginación cuando este lleva los query parameters de limit y offset
  * *Se prueba que al traer datos paginados estos no superen el límite impuesto
  */
+
+/** 23-Mocking en NodeJS
+ * *Consiste en hacerle mocking a servicios externos a nuestro proyecto (APIs, Dependencias, etc)
+ * *En este caso tenemos que hacer mocking de nodemailer
+ * *Primero se genera el mock con la configuracion necesaria
+ *  ?Se le coloca las funciones que va a simular y que va a espiar.
+ * *Luego se hace una limpieza de los mocks para evitar comportamientos indeseados
+ * *Se crea la prueba para la ruta y se le dice al mock que resuelva una promesa en true
+ * *Se verifica el msj de la solicitud
+ * *Y finalmente se verifica si dicha función que espiaba el mock fue llamada al menos una vez para corroborar que el código no falla
+ */
