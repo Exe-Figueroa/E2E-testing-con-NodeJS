@@ -142,3 +142,8 @@
  * *Se verifica el msj de la solicitud
  * *Y finalmente se verifica si dicha función que espiaba el mock fue llamada al menos una vez para corroborar que el código no falla
  */
+
+/** 24-Automatización en GitHub Actions
+ * *Se hace con el fin de que cada vez que hayan cambios en el repo se corran las pruebas de manera automática
+ *  ?Esto es debido a que cuando desplegamos nuestra app no tenemos manera de correr los tests
+ */
